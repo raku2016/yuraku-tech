@@ -2,276 +2,133 @@
 <html lang="ja">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>有楽テック合同会社 | 代表社員 李 云樂 (Li Yunle)</title>
+    <meta name="description" content="有楽テック合同会社の公式サイト。代表社員 李 云樂（Li Yunle）によるSalesforce導入支援、Webシステム開発、ITコンサルティングを提供。東京都江戸川区を拠点に企業のDXを支援します。">
+    <meta name="keywords" content="有楽テック合同会社, 李云樂, 李 云樂, Li Yunle, Salesforce導入, Web開発, 江戸川区 IT">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "有楽テック合同会社",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "西葛西2-23-10-907号",
+        "addressLocality": "江戸川区",
+        "addressRegion": "東京都",
+        "postalCode": "134-0088",
+        "addressCountry": "JP"
+      },
+      "url": "https://yuraku-tech.jp",
+      "telephone": "",
+      "founder": {
+        "@type": "Person",
+        "name": "李 云樂",
+        "jobTitle": "代表社員"
+      }
+    }
+    </script>
 
-<title>有楽テック合同会社</title>
-
-<style>
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-color:#333;
-line-height:1.6;
-}
-
-/* 顶部导航 */
-
-header{
-background:white;
-border-bottom:1px solid #eee;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:100;
-}
-
-header h1{
-margin:0;
-font-size:20px;
-color:#005bac;
-}
-
-nav a{
-margin-left:25px;
-text-decoration:none;
-color:#333;
-font-weight:500;
-}
-
-nav a:hover{
-color:#005bac;
-}
-
-/* Banner */
-
-.hero{
-background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-url("https://images.unsplash.com/photo-1451187580459-43490279c0fa");
-background-size:cover;
-background-position:center;
-color:white;
-padding:150px 20px;
-text-align:center;
-}
-
-.hero h2{
-font-size:42px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:18px;
-opacity:0.9;
-}
-
-/* 内容 */
-
-.container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-
-h2{
-color:#005bac;
-margin-bottom:20px;
-}
-
-/* 服务卡片 */
-
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:25px;
-margin-top:30px;
-}
-
-.card{
-background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 6px 20px rgba(0,0,0,0.08);
-}
-
-.card h3{
-color:#005bac;
-}
-
-/* 公司信息 */
-
-.company{
-background:#f5f7fb;
-padding:40px;
-border-radius:10px;
-}
-
-/* 联系 */
-
-.contact{
-background:#005bac;
-color:white;
-text-align:center;
-padding:70px 20px;
-}
-
-.contact h2{
-color:white;
-}
-
-/* footer */
-
-footer{
-text-align:center;
-padding:20px;
-background:#f5f5f5;
-font-size:14px;
-}
-
-</style>
-
+    <style>
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.6; }
+        header { background: white; border-bottom: 1px solid #eee; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        header h1 { margin: 0; font-size: 20px; color: #005bac; }
+        nav a { margin-left: 25px; text-decoration: none; color: #333; font-weight: 500; }
+        nav a:hover { color: #005bac; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa"); background-size: cover; background-position: center; color: white; padding: 150px 20px; text-align: center; }
+        .hero h2 { font-size: 42px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; opacity: 0.9; }
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
+        h2 { color: #005bac; margin-bottom: 20px; border-left: 5px solid #005bac; padding-left: 15px; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 25px; margin-top: 30px; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: #005bac; margin-top: 0; }
+        .company { background: #f5f7fb; padding: 40px; border-radius: 10px; }
+        .contact { background: #005bac; color: white; text-align: center; padding: 70px 20px; }
+        .contact h2 { color: white; border: none; }
+        footer { text-align: center; padding: 20px; background: #f5f5f5; font-size: 14px; }
+        .message-section { background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 10px; margin-bottom: 40px; }
+        strong { color: #005bac; }
+    </style>
 </head>
 
 <body>
 
-
-<header>
-
-<h1>有楽テック合同会社</h1>
-
-<nav>
-
-<a href=" ">会社概要</a >
-
-<a href="#services">サービス</a >
-
-<a href="#contact">お問い合わせ</a >
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<h2>Digital Innovation Partner</h2>
-
-<p>テクノロジーで企業の未来を創る</p >
-
-</section>
-
-
-<div class="container">
-
-
-<section id="company">
-
-<h2>会社概要</h2>
-
-<div class="company">
-
-<p>
-
-会社名：有楽テック合同会社<br>
-
-設立：2026年3月<br>
-
-所在地：東京都江戸川区西葛西2-23-10-907号<br>
-
-代表社員：李 云楽
-
-</p >
-
-</div>
-
-</section>
-
-
-<section id="services">
-
-<h2>サービス</h2>
-
-<div class="services">
-
-<div class="card">
-
-<h3>Salesforce導入支援</h3>
-
-<p>Salesforceの導入・カスタマイズ・運用サポートを提供します。</p >
-
-</div>
-
-<div class="card">
-
-<h3>Webシステム開発</h3>
-
-<p>業務効率化のためのWebシステム開発を行います。</p >
-
-</div>
-
-<div class="card">
-
-<h3>ITコンサルティング</h3>
-
-<p>企業のDX推進をITの観点から支援します。</p >
-
-</div>
-
-<div class="card">
-
-<h3>クラウドソリューション</h3>
-
-<p>AWSなどクラウド環境の設計・導入支援。</p >
-
-</div>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2>ミッション</h2>
-
-<p>
-
-テクノロジーを通じて企業のデジタルトランスフォーメーションを支援し、  
-より効率的で価値あるビジネス環境の実現に貢献します。
-
-</p >
-
-</section>
-
-
-</div>
-
-
-<section class="contact" id="contact">
-
-<h2>お問い合わせ</h2>
-
-<p>Email：info@yuraku-tech.jp</p >
-
-</section>
-
-
-<footer>
-
-© 2026 Yuraku Tech LLC
-
-</footer>
-
+    <header>
+        <h1>有楽テック合同会社</h1>
+        <nav>
+            <a href=" ">会社概要</a >
+            <a href="#services">サービス</a >
+            <a href="#contact">お問い合わせ</a >
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Digital Innovation Partner</h2>
+        <p>テクノロジーで企業の未来を創る</p >
+    </section>
+
+    <div class="container">
+
+        <section id="message" class="message-section">
+            <h2>代表挨拶</h2>
+            <p>
+                有楽テック合同会社のホームページをご覧いただきありがとうございます。<br><br>
+                代表社員の<strong>李 云樂（Li Yunle）</strong>です。私たちは、Salesforce導入支援やWebシステム開発を通じて、企業のデジタルトランスフォーメーション（DX）を伴走支援しています。複雑なテクノロジーを「価値ある道具」へと変え、より効率的で創造的なビジネス環境の実現に貢献してまいります。
+            </p >
+        </section>
+
+        <section id="company">
+            <h2>会社概要</h2>
+            <div class="company">
+                <p>
+                    <strong>会社名：</strong>有楽テック合同会社<br>
+                    <strong>設立：</strong>2026年3月<br>
+                    <strong>所在地：</strong>東京都江戸川区西葛西2-23-10-907号<br>
+                    <strong>代表社員：</strong>李 云樂
+                </p >
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>サービス</h2>
+            <div class="services">
+                <div class="card">
+                    <h3>Salesforce導入支援</h3>
+                    <p>Salesforceの導入・カスタマイズ・運用サポートを提供し、顧客管理の最適化を支援します。</p >
+                </div>
+                <div class="card">
+                    <h3>Webシステム開発</h3>
+                    <p>最新の技術スタックを用い、業務効率化に特化したWebシステム開発を行います。</p >
+                </div>
+                <div class="card">
+                    <h3>ITコンサルティング</h3>
+                    <p>企業のDX推進をIT戦略の策定から実行まで、プロフェッショナルの視点で支援します。</p >
+                </div>
+                <div class="card">
+                    <h3>クラウドソリューション</h3>
+                    <p>AWSをはじめとするクラウド環境の設計・構築・移行をトータルでサポートします。</p >
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="contact" id="contact">
+        <h2>お問い合わせ</h2>
+        <p>お仕事のご依頼・ご相談は、下記メールアドレスまでお気軽にご連絡ください。</p >
+        <p style="font-size: 20px; font-weight: bold;">Email：info@yuraku-tech.jp</p >
+    </section>
+
+    <footer>
+        © 2026 Yuraku Tech LLC
+    </footer>
 
 </body>
-
 </html>
