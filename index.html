@@ -33,51 +33,109 @@
     </script>
 
     <style>
+        :root {
+            --main-blue: #005bac;
+            --light-blue: #e6f0ff;
+            --dark-bg: #002855;
+        }
+
         html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.8; }
+        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.8; overflow-x: hidden; }
         
+        /* アニメーション用初期状態 */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         /* 导航 */
-        header { background: rgba(255,255,255,0.95); border-bottom: 1px solid #eee; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(5px); }
-        header h1 { margin: 0; font-size: 22px; color: #005bac; letter-spacing: 1px; }
-        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 500; font-size: 14px; }
-        nav a:hover { color: #005bac; }
+        header { background: rgba(255,255,255,0.9); border-bottom: 1px solid #eee; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        header h1 { margin: 0; font-size: 22px; color: var(--main-blue); letter-spacing: 2px; font-weight: 700; }
+        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 500; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: var(--main-blue); }
 
-        /* 视觉图 */
-        .hero { background: linear-gradient(rgba(0,40,85,0.6),rgba(0,40,85,0.6)), url("https://images.unsplash.com/photo-1451187580459-43490279c0fa"); background-size: cover; background-position: center; color: white; padding: 160px 20px; text-align: center; }
-        .hero h2 { font-size: 48px; margin-bottom: 15px; font-weight: 700; letter-spacing: 2px; }
-        .hero p { font-size: 20px; opacity: 0.9; font-weight: 300; }
+        /* ヒーローエリア（動く背景） */
+        .hero { 
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #002855, #005bac, #00a8cc, #002855);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-        .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
-        h2 { color: #005bac; font-size: 28px; margin-bottom: 30px; text-align: center; position: relative; padding-bottom: 15px; }
-        h2::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: #005bac; }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        /* 代表挨拶の新しいデザイン */
-        .message-box { background: #f8f9fa; border-left: 8px solid #005bac; padding: 50px; border-radius: 0 15px 15px 0; margin-bottom: 80px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .message-box h3 { margin-top: 0; color: #005bac; font-size: 24px; margin-bottom: 20px; }
-        .message-text { font-size: 17px; color: #555; }
-        .signature { margin-top: 30px; text-align: right; font-size: 18px; font-weight: bold; color: #333; }
-        .signature span { font-size: 14px; color: #888; margin-right: 10px; font-weight: normal; }
+        .hero h2 { font-size: clamp(32px, 8vw, 56px); margin-bottom: 15px; font-weight: 700; letter-spacing: 3px; animation: fadeInUp 1s ease; }
+        .hero p { font-size: clamp(16px, 3vw, 22px); opacity: 0.9; font-weight: 300; animation: fadeInUp 1.2s ease; }
 
-        /* サービス */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 35px; border-radius: 12px; border: 1px solid #eee; transition: 0.4s; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: #005bac; }
-        .card h3 { color: #005bac; margin-bottom: 15px; font-size: 20px; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* 会社概要 */
-        .company-info { background: #fff; padding: 40px; border: 1px solid #eee; border-radius: 12px; }
-        .info-row { display: flex; border-bottom: 1px solid #eee; padding: 15px 0; }
-        .info-label { width: 150px; font-weight: bold; color: #005bac; }
+        .container { max-width: 1000px; margin: auto; padding: 100px 20px; }
+        
+        h2.section-title { color: var(--main-blue); font-size: 32px; margin-bottom: 50px; text-align: center; position: relative; }
+        h2.section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--main-blue); border-radius: 2px; }
+
+        /* 代表挨拶 */
+        .message-box { background: white; border-left: 8px solid var(--main-blue); padding: 50px; border-radius: 4px; margin-bottom: 100px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); position: relative; }
+        .message-box h3 { margin-top: 0; color: var(--main-blue); font-size: 24px; margin-bottom: 25px; }
+        .message-text { font-size: 17px; color: #555; text-align: justify; }
+        .signature { margin-top: 40px; text-align: right; font-size: 20px; font-weight: bold; color: #333; }
+        .signature span { font-size: 14px; color: #888; margin-right: 12px; font-weight: normal; }
+
+        /* サービスカード（ホバーアニメーション） */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,91,172,0.15); border-color: var(--main-blue); }
+        .card h3 { color: var(--main-blue); margin-bottom: 15px; font-size: 22px; }
+        
+        /* 会社概要テーブル */
+        .company-info { width: 100%; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
+        .info-row { display: flex; border-bottom: 1px solid #eee; padding: 25px; transition: background 0.3s; }
+        .info-row:hover { background: #fcfdfe; }
+        .info-label { width: 180px; font-weight: bold; color: var(--main-blue); }
         .info-value { flex: 1; }
 
-        /* 联系方式 */
-        .contact { background: #005bac; color: white; text-align: center; padding: 90px 20px; }
-        .contact h2 { color: white; border: none; }
-        .contact h2::after { background: white; }
-        .contact-btn { display: inline-block; margin-top: 20px; padding: 15px 40px; background: white; color: #005bac; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .contact-btn:hover { background: #e6f0ff; transform: scale(1.05); }
+        /* お問い合わせ（光るボタン） */
+        .contact { background: var(--dark-bg); color: white; text-align: center; padding: 100px 20px; }
+        .contact h2 { color: white; margin-bottom: 30px; border: none; font-size: 32px; }
+        .contact-btn { 
+            display: inline-block; 
+            margin-top: 30px; 
+            padding: 18px 50px; 
+            background: white; 
+            color: var(--main-blue); 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+            transition: 0.5s;
+        }
+        .contact-btn:hover::before { left: 100%; }
+        .contact-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
-        footer { text-align: center; padding: 30px; background: #222; color: #aaa; font-size: 13px; }
+        footer { text-align: center; padding: 40px; background: #111; color: #777; font-size: 13px; }
     </style>
 </head>
 
@@ -86,61 +144,63 @@
     <header>
         <h1>YURAKU TECH</h1>
         <nav>
-            <a href=" ">代表挨拶</a >
-            <a href="#services">サービス</a >
-            <a href="#company">会社概要</a >
-            <a href="#contact">お問い合わせ</a >
+            <a href=" ">ABOUT</a >
+            <a href="#services">SERVICES</a >
+            <a href="#company">COMPANY</a >
+            <a href="#contact">CONTACT</a >
         </nav>
     </header>
 
     <section class="hero">
         <h2>Digital Innovation Partner</h2>
-        <p>テクノロジーで企業の未来を創る</p >
+        <p>テクノロジーで、まだ見ぬ未来を実装する。</p >
     </section>
 
     <div class="container">
 
-        <section id="message" class="message-box">
-            <h3>代表挨拶</h3>
-            <div class="message-text">
-                有楽テック合同会社のホームページをご覧いただき、誠にありがとうございます。<br><br>
-                私たちは、Salesforce導入支援やWebシステム開発を通じ、お客様のビジネスが抱える課題をテクノロジーで解決するプロフェッショナル集団です。
-                単なるシステムの導入にとどまらず、現場の方々が真に使いやすく、価値を実感できるソリューションを提供することを信条としています。<br><br>
-                変化の激しい現代において、お客様の確かなパートナーとして共に成長し、より良い未来を創造していく所存です。
-            </div>
-            <div class="signature">
-                <span>代表社員</span>李 云樂 (Li Yunle)
+        <section id="message" class="reveal">
+            <div class="message-box">
+                <h3>MESSAGE</h3>
+                <div class="message-text">
+                    有楽テック合同会社の公式サイトへようこそ。<br><br>
+                    私たちは、Salesforce導入支援やWebシステム開発を軸に、企業のデジタルトランスフォーメーション（DX）を加速させる技術集団です。
+                    単なるツールの提供ではなく、クライアントの皆様が「真のビジネス価値」を創出できるよう、現場に深く入り込み、伴走型の支援を行うことをモットーとしています。<br><br>
+                    エンジニアリングの力で、よりスマートで、より可能性に満ちた社会を共に築いていきましょう。
+                </div>
+                <div class="signature">
+                    <span>代表社員</span>李 云樂 (Li Yunle)
+                </div>
             </div>
         </section>
 
         <section id="services">
-            <h2>SERVICES</h2>
+            <h2 class="section-title reveal">OUR SERVICES</h2>
             <div class="services">
-                <div class="card">
+                <div class="card reveal">
                     <h3>Salesforce導入支援</h3>
-                    <p>ビジネスの成長に合わせた最適なカスタマイズと運用定着をサポートします。</p >
+                    <p>標準機能の最大活用から、Apex/LWCを用いた高度なカスタマイズまで。ビジネスを支える強固なCRM基盤を構築します。</p >
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <h3>Webシステム開発</h3>
-                    <p>業務の自動化・効率化を実現する、高品質なWebアプリケーションを開発します。</p >
+                    <p>React, Node.jsなどの最新技術を駆使し、拡張性と保守性に優れた高品質なWebアプリケーションを開発します。</p >
                 </div>
-                <div class="card">
+                <div class="card reveal">
                     <h3>ITコンサルティング</h3>
-                    <p>DXの推進に向けた戦略立案から実行まで、ワンストップで支援いたします。</p >
+                    <p>現状の課題分析からIT戦略の策定、内製化支援まで。お客様の組織に最適なデジタル化のロードマップを提示します。</p >
                 </div>
-                <div class="card">
-                    <h3>クラウド支援</h3>
-                    <p>AWSなどのクラウド基盤を最適化し、強固でスケーラブルなITインフラを構築します。</p >
+                <div class="card reveal">
+                    <h3>クラウドインフラ</h3>
+                    <p>AWS / Google Cloud を活用したスケーラブルなインフラ構築。セキュリティとコストパフォーマンスを両立させます。</p >
                 </div>
             </div>
         </section>
 
-        <br><br><br>
+        <div style="margin-bottom: 150px;"></div>
 
-        <section id="company">
-            <h2>COMPANY</h2>
+        <section id="company" class="reveal">
+            <h2 class="section-title">COMPANY PROFILE</h2>
             <div class="company-info">
-                <div class="info-row"><div class="info-label">会社名</div><div class="info-value">有楽テック合同会社</div></div>
+                <div class="info-row"><div class="info-label">会社名</div><div class="info-value">有楽テック合同会社 (Yuraku Tech LLC)</div></div>
                 <div class="info-row"><div class="info-label">設立</div><div class="info-value">2026年3月</div></div>
                 <div class="info-row"><div class="info-label">所在地</div><div class="info-value">東京都江戸川区西葛西2-23-10-907号</div></div>
                 <div class="info-row"><div class="info-label">代表社員</div><div class="info-value">李 云樂</div></div>
@@ -150,14 +210,33 @@
     </div>
 
     <section class="contact" id="contact">
-        <h2>CONTACT</h2>
-        <p>ご相談やプロジェクトのお見積りなど、お気軽にお問い合わせください。</p >
-        <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a >
+        <div class="reveal">
+            <h2>LET'S WORK TOGETHER</h2>
+            <p>プロジェクトのご相談、技術的な課題など、お気軽にお問い合わせください。</p >
+            <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a >
+        </div>
     </section>
 
     <footer>
         © 2026 Yuraku Tech LLC. All Rights Reserved.
     </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // 初回読み込み時にも実行
+        reveal();
+    </script>
 
 </body>
 </html>
