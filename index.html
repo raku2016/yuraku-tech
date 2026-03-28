@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>有楽テック合同会社 | 代表社員 李 云樂 (Li Yunle)</title>
     <meta name="description" content="有楽テック合同会社の公式サイト。代表社員 李 云樂（Li Yunle）によるSalesforce導入支援、Webシステム開発、ITコンサルティングを提供。東京都江戸川区を拠点に企業のDXを支援します。">
     <meta name="keywords" content="有楽テック合同会社, 李云樂, 李 云樂, Li Yunle, Salesforce導入, Web開発, 江戸川区 IT">
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "有楽テック合同会社",
-      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+      "image": "https://yuraku-tech.jp/logo.PNG",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "西葛西2-23-10-907号",
@@ -37,24 +37,140 @@
             --main-blue: #005bac;
             --light-blue: #e6f0ff;
             --dark-bg: #002855;
+            --deep-blue: #163d73;
+            --accent-cyan: #00a8cc;
         }
 
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.8; overflow-x: hidden; }
-        
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        a {
+            color: inherit;
+        }
+
         /* アニメーション用初期状態 */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
 
-        /* 导航 */
-        header { background: rgba(255,255,255,0.9); border-bottom: 1px solid #eee; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
-        header h1 { margin: 0; font-size: 22px; color: var(--main-blue); letter-spacing: 2px; font-weight: 700; }
-        nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 500; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: var(--main-blue); }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* ヒーローエリア（動く背景） */
-        .hero { 
-            height: 80vh;
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid #e9eef5;
+            padding: 14px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            height: 42px;
+            width: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.15;
+            min-width: 0;
+        }
+
+        .brand-name {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #1b4fa3 0%, #1e8fe6 45%, #163d73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+
+        .brand-sub {
+            margin-top: 4px;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            color: #6f7d8c;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--main-blue);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--main-blue);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -73,87 +189,336 @@
             100% { background-position: 0% 50%; }
         }
 
-        .hero h2 { font-size: clamp(32px, 8vw, 56px); margin-bottom: 15px; font-weight: 700; letter-spacing: 3px; animation: fadeInUp 1s ease; }
-        .hero p { font-size: clamp(16px, 3vw, 22px); opacity: 0.9; font-weight: 300; animation: fadeInUp 1.2s ease; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero h2 {
+            font-size: clamp(32px, 8vw, 56px);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease;
         }
 
-        .container { max-width: 1000px; margin: auto; padding: 100px 20px; }
-        
-        h2.section-title { color: var(--main-blue); font-size: 32px; margin-bottom: 50px; text-align: center; position: relative; }
-        h2.section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--main-blue); border-radius: 2px; }
+        .hero p {
+            font-size: clamp(16px, 3vw, 22px);
+            opacity: 0.92;
+            font-weight: 300;
+            animation: fadeInUp 1.2s ease;
+            max-width: 900px;
+        }
 
-        /* 代表挨拶 */
-        .message-box { background: white; border-left: 8px solid var(--main-blue); padding: 50px; border-radius: 4px; margin-bottom: 100px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); position: relative; }
-        .message-box h3 { margin-top: 0; color: var(--main-blue); font-size: 24px; margin-bottom: 25px; }
-        .message-text { font-size: 17px; color: #555; text-align: justify; }
-        .signature { margin-top: 40px; text-align: right; font-size: 20px; font-weight: bold; color: #333; }
-        .signature span { font-size: 14px; color: #888; margin-right: 12px; font-weight: normal; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        /* サービスカード（ホバーアニメーション） */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; justify-content: center; }
-        .card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); position: relative; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,91,172,0.15); border-color: var(--main-blue); }
-        .card h3 { color: var(--main-blue); margin-bottom: 15px; font-size: 22px; }
-        
-        /* 会社概要テーブル */
-        .company-info { width: 100%; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
-        .info-row { display: flex; border-bottom: 1px solid #eee; padding: 25px; transition: background 0.3s; }
-        .info-row:hover { background: #fcfdfe; }
-        .info-label { width: 180px; font-weight: bold; color: var(--main-blue); }
-        .info-value { flex: 1; }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 100px 20px;
+        }
 
-        /* お問い合わせ（光るボタン） */
-        .contact { background: var(--dark-bg); color: white; text-align: center; padding: 100px 20px; }
-        .contact h2 { color: white; margin-bottom: 30px; border: none; font-size: 32px; }
-        .contact-btn { 
-            display: inline-block; 
-            margin-top: 30px; 
-            padding: 18px 50px; 
-            background: white; 
-            color: var(--main-blue); 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold; 
+        h2.section-title {
+            color: var(--main-blue);
+            font-size: 32px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--main-blue);
+            border-radius: 2px;
+        }
+
+        /* Message */
+        .message-box {
+            background: white;
+            border-left: 8px solid var(--main-blue);
+            padding: 50px;
+            border-radius: 6px;
+            margin-bottom: 100px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .message-box h3 {
+            margin-top: 0;
+            color: var(--main-blue);
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .message-text {
+            font-size: 17px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .signature span {
+            font-size: 14px;
+            color: #888;
+            margin-right: 12px;
+            font-weight: normal;
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 91, 172, 0.15);
+            border-color: var(--main-blue);
+        }
+
+        .card h3 {
+            color: var(--main-blue);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Company */
+        .company-info {
+            width: 100%;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .info-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 25px;
+            transition: background 0.3s;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-row:hover {
+            background: #fcfdfe;
+        }
+
+        .info-label {
+            width: 180px;
+            font-weight: bold;
+            color: var(--main-blue);
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            flex: 1;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 18px 50px;
+            background: white;
+            color: var(--main-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
             font-size: 18px;
             position: relative;
             overflow: hidden;
             transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
+
         .contact-btn::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
             transition: 0.5s;
         }
-        .contact-btn:hover::before { left: 100%; }
-        .contact-btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
 
-        footer { text-align: center; padding: 40px; background: #111; color: #777; font-size: 13px; }
+        .contact-btn:hover::before {
+            left: 100%;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header {
+                padding: 14px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 18px;
+                margin-bottom: 6px;
+            }
+
+            .brand-mark {
+                height: 38px;
+            }
+
+            .brand-name {
+                font-size: 22px;
+            }
+
+            .brand-sub {
+                font-size: 9px;
+                letter-spacing: 0.14em;
+            }
+
+            .message-box {
+                padding: 32px 24px;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .info-label {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .brand {
+                gap: 10px;
+            }
+
+            .brand-mark {
+                height: 32px;
+            }
+
+            .brand-name {
+                font-size: 18px;
+                letter-spacing: 0.5px;
+            }
+
+            .brand-sub {
+                font-size: 8px;
+            }
+
+            .hero h2 {
+                letter-spacing: 1px;
+            }
+
+            .hero p {
+                line-height: 1.8;
+            }
+
+            .card {
+                padding: 28px 24px;
+            }
+
+            .contact-btn {
+                padding: 16px 30px;
+                font-size: 16px;
+            }
+
+            footer {
+                padding: 28px 16px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>有楽テック合同会社</h1>
+        <div class="brand">
+            <img src="logo.PNG" alt="YRロゴ" class="brand-mark">
+            <div class="brand-text">
+                <h1 class="brand-name">有楽テック合同会社</h1>
+                <div class="brand-sub">YURAKU TECH LLC</div>
+            </div>
+        </div>
+
         <nav>
-            <a href=" ">代表挨拶</a >
-            <a href="#services">サービス</a >
-            <a href="#company">会社概要</a >
-            <a href="#contact">お問い合せ</a >
+            <a href="#message">代表挨拶</a>
+            <a href="#services">サービス</a>
+            <a href="#company">会社概要</a>
+            <a href="#contact">お問い合せ</a>
         </nav>
     </header>
 
     <section class="hero">
         <h2>Digital Innovation Partner</h2>
-        <p>テクノロジーで、まだ見ぬ未来を実装する。</p >
+        <p>テクノロジーで、まだ見ぬ未来を実装する。</p>
     </section>
 
     <div class="container">
@@ -178,15 +543,15 @@
             <div class="services">
                 <div class="card reveal">
                     <h3>Salesforce導入支援</h3>
-                    <p>標準機能の最大活用から、Apex/LWCを用いた高度なカスタマイズまで。ビジネスを支える強固なCRM基盤を構築します。</p >
+                    <p>標準機能の最大活用から、Apex/LWCを用いた高度なカスタマイズまで。ビジネスを支える強固なCRM基盤を構築します。</p>
                 </div>
                 <div class="card reveal">
                     <h3>Webシステム開発</h3>
-                    <p>React, Node.jsなどの最新技術を駆使し、拡張性と保守性に優れた高品質なWebアプリケーションを開発します。</p >
+                    <p>React、Node.jsなどの技術を活用し、拡張性と保守性に優れた高品質なWebアプリケーションを開発します。</p>
                 </div>
                 <div class="card reveal">
                     <h3>ITコンサルティング</h3>
-                    <p>現状の課題分析からIT戦略の策定、内製化支援まで。お客様の組織に最適なデジタル化のロードマップを提示します。</p >
+                    <p>現状の課題分析からIT戦略の策定、内製化支援まで。お客様の組織に最適なデジタル化のロードマップを提示します。</p>
                 </div>
             </div>
         </section>
@@ -196,10 +561,22 @@
         <section id="company" class="reveal">
             <h2 class="section-title">会社概要</h2>
             <div class="company-info">
-                <div class="info-row"><div class="info-label">会社名</div><div class="info-value">有楽テック合同会社</div></div>
-                <div class="info-row"><div class="info-label">設立</div><div class="info-value">2026年3月10日</div></div>
-                <div class="info-row"><div class="info-label">所在地</div><div class="info-value">東京都江戸川区西葛西2-23-10-907号</div></div>
-                <div class="info-row"><div class="info-label">代表社員</div><div class="info-value">李 云樂</div></div>
+                <div class="info-row">
+                    <div class="info-label">会社名</div>
+                    <div class="info-value">有楽テック合同会社</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">設立</div>
+                    <div class="info-value">2026年3月10日</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">所在地</div>
+                    <div class="info-value">東京都江戸川区西葛西2-23-10-907号</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">代表社員</div>
+                    <div class="info-value">李 云樂</div>
+                </div>
             </div>
         </section>
 
@@ -208,8 +585,8 @@
     <section class="contact" id="contact">
         <div class="reveal">
             <h2>共に、未来を創る</h2>
-            <p>プロジェクトのご相談、技術的な課題など、お気軽にお問い合わせください。</p >
-            <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a >
+            <p>プロジェクトのご相談、技術的な課題など、お気軽にお問い合わせください。</p>
+            <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a>
         </div>
     </section>
 
@@ -229,10 +606,11 @@
                 }
             }
         }
+
         window.addEventListener("scroll", reveal);
-        // 初回読み込み時にも実行
         reveal();
     </script>
 
 </body>
+
 </html>
