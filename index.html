@@ -2,222 +2,294 @@
 <html lang="ja">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有楽テック合同会社 | YURAKU TECH LLC</title>
+    <meta name="description" content="Salesforce導入支援、Webシステム開発、ITコンサルティングを提供する有楽テック合同会社の公式サイト。">
+    
+    <style>
+        :root {
+            --main-color: #003366; /* 仿hifuture的深蓝色 */
+            --accent-color: #0056b3;
+            --text-black: #1a1a1a;
+            --text-gray: #666666;
+            --bg-gray: #f9f9f9;
+            --border-color: #e5e5e5;
+        }
 
-   <title>有楽テック合同会社 | Salesforce導入支援・Webシステム開発</title>
-   <meta name="description" content="有楽テック合同会社の公式サイト。代表社員 李 云樂（Li Yunle）によるSalesforce（Apex/LWC）導入支援、Webシステム开发、ITコンサルティングを提供。東京都江戸川区を拠点に企業のDXを支援します。">
-   <meta name="keywords" content="有楽テック合同会社, 李云樂, Salesforce, Apex, LWC, Web開発, 江戸川区 IT, DX推進">
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            margin: 0; 
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; 
+            color: var(--text-black); 
+            line-height: 1.8;
+            background: #fff;
+        }
 
-   <script type="application/ld+json">
-   {
-     "@context": "https://schema.org",
-     "@type": "LocalBusiness",
-     "name": "有楽テック合同会社",
-     "image": "https://yuraku-tech.jp/logo.PNG",
-     "address": {
-       "@type": "PostalAddress",
-       "streetAddress": "西葛西2-23-10-907号",
-       "addressLocality": "江戸川区",
-       "addressRegion": "東京都",
-       "postalCode": "134-0088",
-       "addressCountry": "JP"
-     },
-     "url": "https://yuraku-tech.jp",
-     "founder": {
-       "@type": "Person",
-       "name": "李 云樂",
-       "jobTitle": "代表社員"
-     }
-   }
-   </script>
+        /* Animation Control */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 1s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-   <style>
-       :root {
-           --main-blue: #005bac;
-           --light-blue: #e6f0ff;
-           --dark-bg: #002855;
-           --deep-blue: #163d73;
-           --accent-cyan: #00a8cc;
-       }
+        /* Header - Minimalist Style */
+        header { 
+            background: #fff; 
+            padding: 20px 60px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
 
-       * { box-sizing: border-box; }
-       html { scroll-behavior: smooth; }
-       body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.8; overflow-x: hidden; background: #ffffff; }
-       a { color: inherit; }
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .brand-mark { height: 36px; width: auto; }
+        .brand-name { 
+            font-size: 22px; 
+            font-weight: 700; 
+            letter-spacing: 0.1em; 
+            color: var(--main-color);
+            margin: 0;
+        }
+        .brand-sub { font-size: 9px; color: var(--text-gray); font-weight: 400; letter-spacing: 0.2em; }
 
-       .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-       .reveal.active { opacity: 1; transform: translateY(0); }
+        nav a { 
+            margin-left: 35px; 
+            text-decoration: none; 
+            color: var(--text-black); 
+            font-size: 13px; 
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.05em;
+        }
+        nav a:hover { color: var(--accent-color); }
 
-       /* Header */
-       header { background: rgba(255, 255, 255, 0.92); border-bottom: 1px solid #e9eef5; padding: 14px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); }
-       .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
-       .brand-mark { height: 42px; width: auto; display: block; flex-shrink: 0; }
-       .brand-text { display: flex; flex-direction: column; justify-content: center; line-height: 1.15; min-width: 0; }
-       .brand-name { margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 1px; background: linear-gradient(90deg, #1b4fa3 0%, #1e8fe6 45%, #163d73 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; white-space: nowrap; }
-       .brand-sub { margin-top: 4px; font-size: 10px; letter-spacing: 0.18em; color: #6f7d8c; font-weight: 700; white-space: nowrap; }
-       nav { display: flex; align-items: center; }
-       nav a { margin-left: 25px; text-decoration: none; color: #444; font-weight: 600; font-size: 14px; transition: color 0.3s ease; position: relative; white-space: nowrap; }
-       nav a:hover { color: var(--main-blue); }
+        /* Hero Section - hifuture style simple video/image area */
+        .hero { 
+            height: 65vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            background: #fff;
+            position: relative;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: "YURAKU TECH";
+            position: absolute;
+            font-size: 15vw;
+            font-weight: 900;
+            color: #f5f5f5;
+            z-index: -1;
+            white-space: nowrap;
+        }
+        .hero h2 { font-size: 48px; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--main-color); }
+        .hero p { font-size: 18px; color: var(--text-gray); font-weight: 300; }
 
-       /* Hero */
-       .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: linear-gradient(-45deg, #002855, #005bac, #00a8cc, #002855); background-size: 400% 400%; animation: gradientBG 15s ease infinite; color: white; text-align: center; padding: 0 20px; }
-       @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-       .hero h2 { font-size: clamp(32px, 8vw, 56px); margin-bottom: 15px; font-weight: 700; letter-spacing: 3px; }
-       .hero p { font-size: clamp(16px, 3vw, 22px); opacity: 0.92; font-weight: 300; max-width: 900px; }
+        .container { max-width: 1100px; margin: auto; padding: 100px 30px; }
 
-       .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
-       h2.section-title { color: var(--main-blue); font-size: 32px; margin-bottom: 50px; text-align: center; position: relative; }
-       h2.section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--main-blue); border-radius: 2px; }
+        /* Section Titles */
+        .section-header { margin-bottom: 60px; text-align: left; border-left: 4px solid var(--main-color); padding-left: 20px; }
+        .section-header h2 { font-size: 28px; margin: 0; color: var(--main-color); }
+        .section-header span { font-size: 12px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.2em; }
 
-       /* Message & Profile */
-       .message-box { background: white; border-left: 8px solid var(--main-blue); padding: 50px; border-radius: 6px; margin-bottom: 80px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); }
-       .profile-brief { margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 10px; }
-       .profile-brief h4 { margin: 0; color: var(--main-blue); font-size: 18px; }
-       .profile-brief p { margin: 0; font-size: 15px; color: #666; }
+        /* Message Box */
+        .message-box { 
+            background: #fff; 
+            border: 1px solid var(--border-color); 
+            padding: 60px; 
+            margin-bottom: 120px; 
+            position: relative;
+        }
+        .message-text { font-size: 16px; color: #444; line-height: 2; }
+        .profile-card { 
+            margin-top: 40px; 
+            padding: 30px; 
+            background: var(--bg-gray); 
+            border-radius: 2px;
+        }
+        .profile-card h4 { margin: 0 0 15px 0; color: var(--main-color); font-size: 18px; }
+        .profile-card p { margin: 0; font-size: 14px; color: #555; }
+        .signature { text-align: right; margin-top: 30px; font-size: 20px; font-weight: 700; }
 
-       /* Services */
-       .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-       .card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.4s; }
-       .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0, 91, 172, 0.15); border-color: var(--main-blue); }
-       .tech-tag { display: inline-block; background: var(--light-blue); color: var(--main-blue); padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-top: 15px; margin-right: 5px; }
+        /* Services Grid */
+        .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .card { 
+            border: 1px solid var(--border-color); 
+            padding: 40px; 
+            transition: 0.4s;
+            background: #fff;
+        }
+        .card:hover { border-color: var(--main-color); background: var(--bg-gray); }
+        .card h3 { font-size: 18px; color: var(--main-color); margin-bottom: 20px; }
+        .card p { font-size: 14px; color: var(--text-gray); margin-bottom: 20px; }
+        .tech-list { font-size: 11px; color: var(--accent-color); font-weight: 700; border-top: 1px solid #eee; padding-top: 15px; }
 
-       /* Company */
-       .company-info { width: 100%; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03); }
-       .info-row { display: flex; border-bottom: 1px solid #eee; padding: 22px 25px; transition: background 0.3s; }
-       .info-label { width: 180px; font-weight: bold; color: var(--main-blue); flex-shrink: 0; }
-       .map-container { margin-top: 30px; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
+        /* Company Table */
+        .info-table { width: 100%; border-top: 2px solid var(--main-color); }
+        .info-row { display: flex; border-bottom: 1px solid var(--border-color); padding: 25px 10px; align-items: flex-start; }
+        .info-label { width: 220px; font-weight: 700; font-size: 14px; color: var(--main-color); }
+        .info-value { flex: 1; font-size: 14px; color: var(--text-black); }
 
-       /* Contact */
-       .contact { background: var(--dark-bg); color: white; text-align: center; padding: 80px 20px; }
-       .contact-btn { display: inline-block; margin-top: 30px; padding: 18px 50px; background: white; color: var(--main-blue); text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+        /* Map */
+        .map-wrapper { margin-top: 40px; filter: grayscale(1); transition: 0.5s; border: 1px solid var(--border-color); }
+        .map-wrapper:hover { filter: grayscale(0); }
 
-       footer { text-align: center; padding: 40px; background: #111; color: #777; font-size: 13px; }
+        /* Contact */
+        .contact { background: var(--main-color); color: #fff; text-align: center; padding: 100px 20px; }
+        .contact h2 { font-size: 32px; margin-bottom: 40px; }
+        .contact-btn { 
+            display: inline-block; 
+            padding: 18px 60px; 
+            border: 1px solid #fff; 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 14px; 
+            letter-spacing: 0.2em;
+            transition: 0.4s;
+        }
+        .contact-btn:hover { background: #fff; color: var(--main-color); }
 
-       @media (max-width: 900px) {
-           header { padding: 14px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
-           nav a { margin-left: 0; margin-right: 18px; }
-           .info-row { flex-direction: column; gap: 4px; }
-       }
-   </style>
+        footer { text-align: center; padding: 40px; font-size: 11px; color: var(--text-gray); border-top: 1px solid var(--border-color); }
+
+        @media (max-width: 900px) {
+            header { padding: 20px; }
+            .services { grid-template-columns: 1fr; }
+            .message-box { padding: 30px; }
+            .info-row { flex-direction: column; }
+            .info-label { width: 100%; margin-bottom: 10px; }
+        }
+    </style>
 </head>
 
 <body>
 
-   <header>
-       <div class="brand">
-           <img src="logo.PNG" alt="有楽テック" class="brand-mark">
-           <div class="brand-text">
-               <h1 class="brand-name">有楽テック合同会社</h1>
-               <div class="brand-sub">YURAKU TECH LLC</div>
-           </div>
-       </div>
+    <header>
+        <div class="brand">
+            <img src="logo.PNG" alt="YR" class="brand-mark">
+            <div class="brand-text">
+                <h1 class="brand-name">有楽テック合同会社</h1>
+                <div class="brand-sub">YURAKU TECH LLC</div>
+            </div>
+        </div>
+        <nav>
+            <a href=" ">ABOUT</a >
+            <a href="#services">SERVICE</a >
+            <a href="#company">COMPANY</a >
+            <a href="#contact">CONTACT</a >
+        </nav>
+    </header>
 
-       <nav>
-           <a href=" ">代表挨拶</a >
-           <a href="#services">サービス</a >
-           <a href="#company">会社概要</a >
-           <a href="#contact">お問い合せ</a >
-       </nav>
-   </header>
+    <section class="hero">
+        <h2>Digital Solutions.</h2>
+        <p>テクノロジーで、ビジネスに新たな可能性を。</p >
+    </section>
 
-   <section class="hero">
-       <h2>Digital Innovation Partner</h2>
-       <p>確かなエンジニアリングで、ビジネスの課題を価値に変える。</p >
-   </section>
+    <div class="container">
 
-   <div class="container">
+        <section id="message" class="reveal">
+            <div class="section-header">
+                <span>About Us</span>
+                <h2>代表挨拶</h2>
+            </div>
+            <div class="message-box">
+                <div class="message-text">
+                    有楽テック合同会社は、Salesforce導入支援およびモダンなWebシステム開発を通じて、企業のデジタルトランスフォーメーションを支援するパートナーです。<br><br>
+                    複雑化する現代のビジネス環境において、私たちは単なる技術提供に留まらず、クライアントと同じ視点に立ち、真に機能するソリューションを追求し続けます。
+                </div>
+                
+                <div class="profile-card">
+                    <h4>代表社員：李 云樂 (Li Yunle)</h4>
+                    <p>
+                        大手ITベンダーにて長年、エンタープライズシステムの設計・開発に従事。
+                        特にSalesforceプラットフォーム（Apex / LWC）における高度なカスタマイズおよびシステム連携を得意とし、
+                        複数のDX推進プロジェクトをアーキテクトとして成功に導く。
+                    </p >
+                </div>
 
-       <section id="message" class="reveal">
-           <div class="message-box">
-               <h3>代表挨拶</h3>
-               <div class="message-text">
-                   有楽テック合同会社の公式サイトへようこそ。<br><br>
-                   私たちは、Salesforce導入支援やWebシステム開発を轴に、企業のデジタルトランスフォーメーション（DX）を加速させる技術集団です。
-                   単なるツールの提供ではなく、クライアントの皆様が「真のビジネス価値」を創出できるよう、現場に深く入り込み、伴走型の支援を行うことをモットーとしています。<br><br>
-                   エンジニアリングの力で、よりスマートで、より可能性に満ちた社会を共に築いていきましょう。
-               </div>
-               
-               <div class="profile-brief">
-                   <h4>代表社員：李 云樂 (Li Yunle)</h4>
-                   <p>IT業界にて長年、エンタープライズシステムの設計・開発に従事。特にSalesforceプラットフォームにおける高度なカスタマイズ（Apex/LWC）とアーキテクチャ設計に強みを持ち、数多くのDXプロジェクトを成功に導く。</p >
-               </div>
+                <div class="signature">李 云樂</div>
+            </div>
+        </section>
 
-               <div class="signature">
-                   <span>代表社員</span>李 云樂
-               </div>
-           </div>
-       </section>
+        <section id="services" class="reveal">
+            <div class="section-header">
+                <span>Our Services</span>
+                <h2>事業内容</h2>
+            </div>
+            <div class="services">
+                <div class="card">
+                    <h3>Salesforce導入支援</h3>
+                    <p>標準機能の最適化からプログラミングによる高度な拡張まで、ビジネスを加速させるCRM基盘を構築します。</p >
+                    <div class="tech-list">Apex / LWC / Flow</div>
+                </div>
+                <div class="card">
+                    <h3>Webシステム開発</h3>
+                    <p>ReactやNode.js、AWSを活用した、堅牢でスケーラブルなWebアプリケーションを開発・提供します。</p >
+                    <div class="tech-list">React / Node.js / AWS</div>
+                </div>
+                <div class="card">
+                    <h3>ITコンサルティング</h3>
+                    <p>現状課題の分析から、IT戦略の策定、社内のエンジニア育成支援まで幅広くサポートします。</p >
+                    <div class="tech-list">DX Strategy / Training</div>
+                </div>
+            </div>
+        </section>
 
-       <section id="services">
-           <h2 class="section-title reveal">サービス</h2>
-           <div class="services">
-               <div class="card reveal">
-                   <h3>Salesforce導入支援</h3>
-                   <p>標準機能の最大活用から、プログラミングを用いた高度な拡張まで。強固なCRM基盤を構築します。</p >
-                   <span class="tech-tag">Apex / LWC</span><span class="tech-tag">Flow</span>
-               </div>
-               <div class="card reveal">
-                   <h3>Webシステム開発</h3>
-                   <p>最新の技術スタックを用い、拡張性と保守性に優れた高品質なWebアプリケーションを開発します。</p >
-                   <span class="tech-tag">React / Node.js</span><span class="tech-tag">AWS</span>
-               </div>
-               <div class="card reveal">
-                   <h3>ITコンサルティング</h3>
-                   <p>現状の課題分析からIT戦略の策定、内製化支援まで。最適なDXロードマップを提示します。</p >
-                   <span class="tech-tag">DX戦略</span><span class="tech-tag">システム移行</span>
-               </div>
-           </div>
-       </section>
+        <div style="margin-bottom: 120px;"></div>
 
-       <div style="margin-bottom: 120px;"></div>
+        <section id="company" class="reveal">
+            <div class="section-header">
+                <span>Corporate Profile</span>
+                <h2>会社概要</h2>
+            </div>
+            <div class="info-table">
+                <div class="info-row"><div class="info-label">名称</div><div class="info-value">有楽テック合同会社 (Yuraku Tech LLC)</div></div>
+                <div class="info-row"><div class="info-label">設立</div><div class="info-value">2026年3月10日</div></div>
+                <div class="info-row"><div class="info-label">資本金</div><div class="info-value">1,000,000円</div></div>
+                <div class="info-row"><div class="info-label">所在地</div><div class="info-value">〒134-0088 東京都江戸川区西葛西２丁目２３－１０－９０７</div></div>
+                <div class="info-row"><div class="info-label">代表社員</div><div class="info-value">李 云樂</div></div>
+                <div class="info-row"><div class="info-label">事業内容</div><div class="info-value">コンピュータシステムの企画・開発・保守およびコンサルティング</div></div>
+                <div class="info-row"><div class="info-label">取引銀行</div><div class="info-value">三井住友銀行、住信SBIネット銀行（申請中）</div></div>
+            </div>
 
-       <section id="company" class="reveal">
-           <h2 class="section-title">会社概要</h2>
-           <div class="company-info">
-               <div class="info-row"><div class="info-label">会社名</div><div class="info-value">有楽テック合同会社 (Yuraku Tech LLC)</div></div>
-               <div class="info-row"><div class="info-label">設立</div><div class="info-value">2026年3月10日</div></div>
-               <div class="info-row"><div class="info-label">资本金</div><div class="info-value">1,000,000円</div></div>
-               <div class="info-row"><div class="info-label">所在地</div><div class="info-value">〒134-0088 東京都江戸川区西葛西2-23-10-907号</div></div>
-               <div class="info-row"><div class="info-label">代表社員</div><div class="info-value">李 云樂</div></div>
-               <div class="info-row"><div class="info-label">事業内容</div><div class="info-value">コンピュータシステムの企画、開発、保守及びコンサルティング</div></div>
-               <div class="info-row"><div class="info-label">主要取引銀行</div><div class="info-value">住信SBIネット銀行、ゆうちょ銀行（申請中）</div></div>
-           </div>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1557454224535!2d139.8569429!3d35.6546654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601887e14f9f7d3d%3A0x0!2z44CSMTM0LTAwODgg5p2x5Lqs6YO95rGf5oi45bed5Yy66KW_6JGb6KW_Mi0yMy0xMA!5e0!3m2!1sja!2sjp!4v1711234567890!5m2!1sja!2sjp" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
 
-           <div class="map-container">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.1557454224535!2d139.8569429!3d35.6546654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601887e14f9f7d3d%3A0x0!2z44CSMTM0LTAwODgg5p2x5Lqs6YO95rGf5oi45bed5Yy66KW_6JGb6KW_Mi0yMy0xMA!5e0!3m2!1sja!2sjp!4v1711234567890!5m2!1sja!2sjp" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-           </div>
-       </section>
+    </div>
 
-   </div>
+    <section class="contact" id="contact">
+        <div class="reveal">
+            <h2>Let's work together.</h2>
+            <a href="mailto:info@yuraku-tech.jp" class="contact-btn">CONTACT US</a >
+        </div>
+    </section>
 
-   <section class="contact" id="contact">
-       <div class="reveal">
-           <h2>共に、未来を创る</h2>
-           <p>プロジェクトのご相談、技術的な課題など、お気軽にお問い合わせください。</p >
-           <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a >
-       </div>
-   </section>
+    <footer>
+        &copy; 2026 YURAKU TECH LLC. ALL RIGHTS RESERVED.
+    </footer>
 
-   <footer>
-       © 2026 Yuraku Tech LLC. All Rights Reserved.
-   </footer>
-
-   <script>
-       function reveal() {
-           var reveals = document.querySelectorAll(".reveal");
-           for (var i = 0; i < reveals.length; i++) {
-               var windowHeight = window.innerHeight;
-               var elementTop = reveals[i].getBoundingClientRect().top;
-               var elementVisible = 100;
-               if (elementTop < windowHeight - elementVisible) {
-                   reveals[i].classList.add("active");
-               }
-           }
-       }
-       window.addEventListener("scroll", reveal);
-       reveal();
-   </script>
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
 
 </body>
 </html>
