@@ -6,42 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <title>有楽テック合同会社 | Salesforce導入支援・Webシステム開発</title>
-   <meta name="description" content="Salesforce認定资格保持者による导入支援、Webシステム開発、ITコンサルティングを提供する有楽テック合同会社の公式サイト。東京都江戸川区を拠点に企業のDXを支援します。">
-   <meta name="keywords" content="有楽テック合同会社, 李云樂, Salesforce, Apex, LWC, Web開発, 江戸川区 IT, DX推進">
-
-   <script type="application/ld+json">
-   {
-     "@context": "https://schema.org",
-     "@type": "LocalBusiness",
-     "name": "有楽テック合同会社",
-     "image": "https://yuraku-tech.jp/logo.PNG",
-     "address": {
-       "@type": "PostalAddress",
-       "streetAddress": "西葛西２丁目２３－１０－９０７",
-       "addressLocality": "江戸川区",
-       "addressRegion": "東京都",
-       "postalCode": "134-0088",
-       "addressCountry": "JP"
-     },
-     "url": "https://yuraku-tech.jp",
-     "founder": {
-       "@type": "Person",
-       "name": "李 云樂",
-       "jobTitle": "代表社員"
-     }
-   }
-   </script>
-
-   <style>
-       :root {
-           --main-blue: #005bac;
-           --light-blue: #e6f0ff;
-           --dark-bg: #002855;
-           --deep-blue: #163d73;
-           --accent-cyan: #00a8cc;
-           --accent-green: #38b449; /* 実績の見出し用グリーン */
-       }
-
+   <meta name="description" content="Salesforce認定資格保持者による導入支援、Webシステム開発、ITコンサルティングを提供する有楽テック合同会社の公式サイト。東京都江戸川区を拠点に企業のDXを支援します。">
        * { box-sizing: border-box; }
        html { scroll-behavior: smooth; }
        body { margin: 0; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; color: #333; line-height: 1.8; overflow-x: hidden; background: #ffffff; }
@@ -67,49 +32,35 @@
        .hero h2 { font-size: clamp(32px, 8vw, 56px); margin-bottom: 15px; font-weight: 700; letter-spacing: 3px; }
        .hero p { font-size: clamp(16px, 3vw, 20px); opacity: 0.92; font-weight: 300; max-width: 900px; }
 
-       .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
+       .container { max-width: 1000px; margin: auto; padding: 80px 20px; }
        h2.section-title { color: var(--main-blue); font-size: 32px; margin-bottom: 50px; text-align: center; position: relative; }
        h2.section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--main-blue); border-radius: 2px; }
 
-       /* Message & Profile with Credentials */
+       /* Message & Profile */
        .message-box { background: white; border-left: 8px solid var(--main-blue); padding: 50px; border-radius: 6px; margin-bottom: 80px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); }
-       .message-text { font-size: 17px; color: #555; text-align: justify; margin-bottom: 30px; }
-
-       .profile-brief-modern { background: var(--bg-gray); padding: 30px; border-radius: 4px; border: 1px solid #eee; margin-top: 30px; }
+       .profile-brief-modern { background: #fcfcfc; padding: 30px; border-radius: 4px; border: 1px solid #eee; margin-top: 30px; }
        .profile-brief-modern h4 { margin: 0 0 15px 0; color: var(--main-blue); font-size: 19px; }
        .credentials-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
        .cert-badge { display: inline-block; background: #fff; border: 1px solid var(--main-blue); color: var(--main-blue); padding: 4px 12px; font-size: 12px; font-weight: 700; border-radius: 20px; }
        .profile-brief-modern p { margin: 0; font-size: 15px; color: #666; }
+       .signature { margin-top: 40px; text-align: right; font-size: 20px; font-weight: bold; }
+       .signature span { font-size: 14px; color: #888; margin-right: 12px; }
 
-       .signature { margin-top: 40px; text-align: right; font-size: 20px; font-weight: bold; color: #333; }
-       .signature span { font-size: 14px; color: #888; margin-right: 12px; font-weight: normal; }
-
-       /* Services */
-       .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 100px; }
-       .card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.4s; }
+       /* Grid System (Used for Services & Projects) */
+       .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 100px; }
+       .card { background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee; transition: 0.4s; display: flex; flex-direction: column; height: 100%; }
        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0, 91, 172, 0.15); border-color: var(--main-blue); }
-       .tech-tag { display: inline-block; background: var(--light-blue); color: var(--main-blue); padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-top: 15px; margin-right: 5px; }
+       .card h3 { font-size: 18px; color: var(--main-blue); margin-top: 0; margin-bottom: 15px; min-height: 2.4em; display: flex; align-items: center; }
+       .card p { font-size: 14px; color: #666; flex-grow: 1; margin-bottom: 20px; }
 
-       /* 项目业绩版块（Project Results） - 新增! */
-       .results-header { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
-       .results-title-main { color: var(--text-black); font-size: 26px; font-weight: 700; margin: 0; }
-       .results-title-green { background: var(--accent-green); color: white; padding: 4px 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
-
-       .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 30px; }
-       .project-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; background: #fff; transition: 0.3s; }
-       .project-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-       .project-head-green { background: var(--accent-green); color: white; padding: 15px 20px; font-size: 16px; font-weight: 700; }
-       .project-body { padding: 25px 20px; }
-       .project-meta { border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px; font-size: 14px; }
-       .project-meta-row { display: flex; margin-bottom: 6px; }
-       .meta-label { width: 100px; color: #888; flex-shrink: 0; }
-       .meta-value { flex: 1; color: #333; font-weight: 700; }
-       .project-desc { font-size: 14px; color: #666; text-align: justify; }
+       /* Tags (Used for Tech and Metadata) */
+       .tag-container { display: flex; flex-wrap: wrap; gap: 6px; }
+       .tag { display: inline-block; background: var(--light-blue); color: var(--main-blue); padding: 3px 12px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+       .tag-gray { background: #f0f2f5; color: #666; }
 
        /* Company */
        .company-info { width: 100%; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03); }
-       .info-row { display: flex; border-bottom: 1px solid #eee; padding: 22px 25px; transition: background 0.3s; }
+       .info-row { display: flex; border-bottom: 1px solid #eee; padding: 22px 25px; }
        .info-label { width: 180px; font-weight: bold; color: var(--main-blue); flex-shrink: 0; }
        .map-container { margin-top: 30px; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
 
@@ -123,7 +74,6 @@
            header { padding: 14px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
            nav a { margin-left: 0; margin-right: 18px; }
            .info-row { flex-direction: column; gap: 4px; }
-           .project-grid { grid-template-columns: 1fr; }
        }
    </style>
 </head>
@@ -132,7 +82,7 @@
 
    <header>
        <div class="brand">
-           <img src="logo.PNG" alt="YRロゴ" class="brand-mark">
+           <img src="logo.png" alt="YRロゴ" class="brand-mark">
            <div class="brand-text">
                <h1 class="brand-name">有楽テック合同会社</h1>
                <div class="brand-sub">YURAKU TECH LLC</div>
@@ -142,7 +92,7 @@
        <nav>
            <a href="#message">代表挨拶</a>
            <a href="#services">サービス</a>
-           <a href="#projects">実績介紹</a>
+           <a href="#projects">実績紹介</a>
            <a href="#company">会社概要</a>
            <a href="#contact">お問い合せ</a>
        </nav>
@@ -150,29 +100,29 @@
 
    <section class="hero">
        <h2>Digital Innovation Partner</h2>
-       <p>確かなエンジニアリングで、ビジネスの課題を价值に変える。</p>
+       <p>確かなエンジニアリングで、ビジネスの課題を価値に変える。</p>
    </section>
 
    <div class="container">
 
+       <!-- Message Section -->
        <section id="message" class="reveal">
            <div class="message-box">
-               <h3>代表挨拶</h3>
+               <h2 style="font-size: 24px; color: var(--main-blue); margin-bottom: 25px;">代表挨拶</h2>
                <div class="message-text">
                    有楽テック合同会社の公式サイトへようこそ。<br><br>
-                   私たちは、Salesforce导入支援やWebシステム開発を轴に、企業のデジタルトランスフォーメーション（DX）を加速させる技術集団です。
+                   私たちは、Salesforce導入支援やWebシステム開発を軸に、企業のデジタルトランスフォーメーション（DX）を加速させる技術集団です。
                    単なるツールの提供ではなく、クライアントの皆様が「真のビジネス価値」を創出できるよう、現場に深く入り込み、伴走型の支援を行うことをモットーとしています。<br><br>
                    エンジニアリングの力で、よりスマートで、より可能性に満ちた社会を共に築いていきましょう。
                </div>
 
-
-<div class="profile-brief-modern">
-                   <h4>代表社員：李 云樂 <span style="font-size: 0.8em; color: #666;">(Li Yunle)</span></h4>
+               <div class="profile-brief-modern">
+                   <h4>代表社員：李 云樂</h4>
                    <div class="credentials-list">
                        <span class="cert-badge">Salesforce認定 アドミニストレーター</span>
                        <span class="cert-badge">Salesforce認定 Platformデベロッパー1</span>
                    </div>
-                   <p>IT行业にて長年、エンタープライズシステムの設計・開発に従事。特にSalesforceプラットフォームにおけるApex/LWCを用いた高度なカスタマイズおよびシステム連携のアーキテクチャ設計に強みを持ち、複数の大規模DXプロジェクトを成功に導く。</p>
+                   <p>IT業界にて長年、エンタープライズシステムの設計・開発に従事。特にSalesforceプラットフォームにおけるApex/LWCを用いた高度なカスタマイズおよびシステム連携のアーキテクチャ設計に強みを持ち、複数の大規模DXプロジェクトを成功に導く。</p>
                </div>
 
                <div class="signature">
@@ -181,72 +131,81 @@
            </div>
        </section>
 
+       <!-- Services Section -->
        <section id="services">
-           <h2 class="section-title reveal">サービス</h2>
-           <div class="services">
+           <h2 class="section-title reveal">サービス内容</h2>
+           <div class="grid-layout">
                <div class="card reveal">
-                   <h3>Salesforce导入支援</h3>
-                   <p>标准機能の最大活用から、プログラミングを用いた高度な拡張まで。強固なCRM基盤を構築します。</p>
-                   <span class="tech-tag">Apex / LWC</span><span class="tech-tag">Flow</span>
+                   <h3>Salesforce導入支援</h3>
+                   <p>標準機能の最大活用から、プログラミングを用いた高度な拡張まで。強固なCRM基盤を構築します。</p>
+                   <div class="tag-container">
+                       <span class="tag">Apex / LWC</span>
+                       <span class="tag">Flow</span>
+                   </div>
                </div>
                <div class="card reveal">
                    <h3>Webシステム開発</h3>
                    <p>最新の技術スタックを用い、拡張性と保守性に優れた高品質なWebアプリケーションを開発します。</p>
-                   <span class="tech-tag">React / Node.js</span><span class="tech-tag">AWS</span>
+                   <div class="tag-container">
+                       <span class="tag">React / Node.js</span>
+                       <span class="tag">AWS</span>
+                   </div>
                </div>
                <div class="card reveal">
                    <h3>ITコンサルティング</h3>
                    <p>現状の課題分析からIT戦略の策定、内製化支援まで。最適なDXロードマップを提示します。</p>
-                   <span class="tech-tag">DX戦略</span><span class="tech-tag">システム移行</span>
+                   <div class="tag-container">
+                       <span class="tag">DX戦略</span>
+                       <span class="tag">内製化支援</span>
+                   </div>
                </div>
            </div>
        </section>
 
-
-<section id="projects" class="reveal" style="margin-bottom: 120px;">
-           <div class="results-header">
-               <span class="results-title-green">Project Results</span>
-               <h2 class="results-title-main">プロジェクト実績介紹</h2>
-           </div>
-
-           <div class="project-grid">
-
-<div class="project-card">
-                   <div class="project-head-green">リース会社新SFAシステム構築</div>
-                   <div class="project-body">
-                       <div class="project-meta">
-                           <div class="project-meta-row"><div class="meta-label">业务领域</div><div class="meta-value">金融</div></div>
-                           <div class="project-meta-row"><div class="meta-label">受注规模</div><div class="meta-value">80+ MM (人月)</div></div>
-                       </div>
-                       <div class="project-desc">お客様情報、案件情報管理等を含めて、システム全体的な再構築。管理、技術、业务全般に、ベンダー様及びエンドユーザ様から好評を頂きました。</div>
+       <!-- Projects Section (Styled same as Services) -->
+       <section id="projects">
+           <h2 class="section-title reveal">プロジェクト実績紹介</h2>
+           <div class="grid-layout">
+               <!-- Project 1 -->
+               <div class="card reveal">
+                   <h3>リース会社向け<br>新SFAシステム構築</h3>
+                   <div style="margin-bottom: 15px;">
+                       <span class="tag tag-gray">金融</span>
+                       <span class="tag tag-gray">受注規模：80+ MM</span>
                    </div>
+                   <p>お客様情報、案件情報管理等を含めて、システム全体的な再構築。管理・技術の両面で高い評価を頂きました。</p>
                </div>
-
-
-<div class="project-card">
-                   <div class="project-head-green">大手保険会社の新たな代理店へSalesforceを導入</div>
-                   <div class="project-body">
-                       <div class="project-meta">
-                           <div class="project-meta-row"><div class="meta-label">业务领域</div><div class="meta-value">保険</div></div>
-                           <div class="project-meta-row"><div class="meta-label">受注规模</div><div class="meta-value">9MM / 月</div></div>
-                       </div>
-                       <div class="project-desc">大手コンサルティング会社からの直案件。顧客管理、契約情報管理等业务の技術提案段階から対応しております。</div>
+               <!-- Project 2 -->
+               <div class="card reveal">
+                   <h3>大手保険会社<br>Salesforce導入・展開</h3>
+                   <div style="margin-bottom: 15px;">
+                       <span class="tag tag-gray">保険</span>
+                       <span class="tag tag-gray">受注規模：9MM / 月</span>
                    </div>
+                   <p>新たな代理店へのSalesforce導入プロジェクト。技術提案段階から顧客管理・契約情報の設計まで対応。</p>
                </div>
-
+               <!-- Project 3 (Filler or Future placeholder) -->
+               <div class="card reveal">
+                   <h3>生命保険CRMシステム<br>構築・保守</h3>
+                   <div style="margin-bottom: 15px;">
+                       <span class="tag tag-gray">生保</span>
+                       <span class="tag tag-gray">アーキテクチャ設計</span>
+                   </div>
+                   <p>大規模な顧客データを扱うCRM基盤の設計及び開発。保守性を重視したApexコードの最適化を実施。</p>
+               </div>
            </div>
        </section>
 
+       <!-- Company Section -->
        <section id="company" class="reveal">
            <h2 class="section-title">会社概要</h2>
            <div class="company-info">
                <div class="info-row"><div class="info-label">会社名</div><div class="info-value">有楽テック合同会社 (Yuraku Tech LLC)</div></div>
                <div class="info-row"><div class="info-label">設立</div><div class="info-value">2026年3月10日</div></div>
-               <div class="info-row"><div class="info-label">资本金</div><div class="info-value">1,000,000円</div></div>
+               <div class="info-row"><div class="info-label">資本金</div><div class="info-value">1,000,000円</div></div>
                <div class="info-row"><div class="info-label">所在地</div><div class="info-value">〒134-0088 東京都江戸川区西葛西２丁目２３－１０－９０７</div></div>
                <div class="info-row"><div class="info-label">代表社員</div><div class="info-value">李 云樂</div></div>
-               <div class="info-row"><div class="info-label">保有资格</div><div class="info-value">Salesforce认定アドミニストレーター、认定Platformデベロッパー1</div></div>
-<div class="info-row"><div class="info-label">事業内容</div><div class="info-value">コンピュータシステムの企画、開発、保守及びコンサルティング</div></div>
+               <div class="info-row"><div class="info-label">保有資格</div><div class="info-value">Salesforce認定アドミニストレーター、認定Platformデベロッパー1</div></div>
                <div class="info-row"><div class="info-label">主要取引銀行</div><div class="info-value">三井住友銀行、住信SBIネット銀行（申請中）</div></div>
            </div>
 
@@ -259,7 +218,7 @@
 
    <section class="contact" id="contact">
        <div class="reveal">
-           <h2>共に、未来を创る</h2>
+           <h2>共に、未来を創る</h2>
            <p>プロジェクトのご相談、技術的な課題など、お気軽にお問い合わせください。</p>
            <a href="mailto:info@yuraku-tech.jp" class="contact-btn">info@yuraku-tech.jp</a>
        </div>
